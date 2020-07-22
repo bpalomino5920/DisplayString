@@ -1,0 +1,26 @@
+from uagame import Window
+from time import sleep
+
+# Create window
+window = Window('hello', 300, 200)
+
+word = window.input_string('Enter string >', 0, 0)
+
+line_y = 0
+string_height = window.get_font_height()
+
+
+#         compute x coordinate
+x_space = window.get_width() - window.get_string_width(word)
+line_x = x_space // 1
+
+#         compute y coordinate
+outcome_height = 1*string_height
+y_space = window.get_height() - outcome_height
+line_y = y_space // 1
+
+# display string
+window.draw_string(word, line_x, line_y)
+window.update()
+sleep(2)
+window.close()
